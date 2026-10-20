@@ -1,0 +1,56 @@
+{
+  "name": "dsh-page-context",
+  "version": "0.1.0",
+  "description": "DSH plugin: a right-sidebar page browser that inserts a picked element into the composer as context, plus a page-reading tool for the agent.",
+  "license": "MIT",
+  "author": "Lucas",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "plugin",
+    "browser",
+    "page-context"
+  ],
+  "repository": "git+https://github.com/liccq/dsh-page-context.git",
+  "homepage": "https://github.com/liccq/dsh-page-context",
+  "bugs": {
+    "url": "https://github.com/liccq/dsh-page-context/issues"
+  },
+  "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "html.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "dsh": ">=0.2.1-rc.2"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-sidebar-right",
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ]
+    }
+  }
+}
